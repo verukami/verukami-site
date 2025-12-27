@@ -1,0 +1,227 @@
+.ghost-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 4rem 4rem;
+  background: var(--color-bg-dark);
+  z-index: 10;
+}
+
+.micro-nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.micro-nav a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.micro-nav a:hover {
+    /* Al pasar el mouse, usa el gradiente para un efecto más 'pop' */
+    color: var(--color-pink); 
+    background: linear-gradient(45deg, var(--color-pink), var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
+
+
+/* -----------------------------
+   Page layout
+----------------------------- */
+
+.about-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 180px 2rem 6rem; /* header compensation baked in */
+  box-sizing: border-box;
+}
+
+/* -----------------------------
+   Hero
+----------------------------- */
+
+.about-hero {
+  margin-bottom: 4rem;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* -----------------------------
+   Sections
+----------------------------- */
+
+.about-section {
+  margin-bottom: 4rem;
+}
+
+.about-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+/* -----------------------------
+   Lists
+----------------------------- */
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-section li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  opacity: 0.85;
+}
+
+.about-section li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-pink);
+}
+
+
+/*-------------------------------
+   Footer */
+   :root {
+    --color-bg-dark: #1a1a1a;
+    --color-pink: #fb108e;
+    --color-blue: #00ffee;
+   }
+
+.ghost-footer {
+  width: 100%;
+  background-color: var(--color-bg-dark);
+  padding: 80px 0 60px;
+  color: whitesmoke;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #000;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-marquee-wrapper {
+  width: 100%;
+  height: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 120px;
+  animation: marquee 40s linear infinite;
+}
+
+.footer-marquee-content span {
+  font-size: 40px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translatex(-50%);
+}}
+
+.socials {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 8px 40px;
+  width: 100%;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0 28px;
+  transition: color 0.3 ease;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+    /* Al pasar el mouse, usa el gradiente para un efecto más 'pop' */
+    color: var(--color-pink); 
+    background: linear-gradient(45deg, var(--color-pink), var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-note{
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+  opacity: 0.6;
+  padding-bottom: 20px;
+}
+
+/* -----------------------------
+   Scroll reveal base
+----------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

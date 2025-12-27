@@ -1,0 +1,412 @@
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #ffffff;
+  --bg-soft: #fafafa;
+
+  --text-dark: #0f0f0f;
+  --text-light: #ffffff;
+  --text-muted: #8a8a8a;
+
+  --accent-pink: #ff6fae;
+  --accent-blue: #6faeff;
+  --accent-green: #6fffac;
+}
+
+body{
+  transition: background-color 0.6s ease, color 0.4s ease;
+}
+
+body.is-dark {
+  color: var(--text-light);
+  }
+
+body.is-light {
+  color: var(--text-dark);
+}
+
+.project-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9f9;
+  backdrop-filter: blur(100px);
+  z-index: 20;
+  opacity: .9;
+}
+
+.back-link {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1a1a1a;
+  opacity: 0.7;
+}
+
+.back-link:hover {
+  opacity: 1;
+}
+
+.project-brand {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+
+/* Base layout */
+.project {
+  background: inherit;
+  color: inherit;
+  font-family: system-ui, sans-serif;
+}
+
+
+/* El gate ocupa TODO */
+#protected-content {
+  display: none;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- PASSWORD GATE --- */
+
+#password-gate {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.gate-box {
+  max-width: 420px;
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+}
+
+.gate-box h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.gate-box p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.gate-box input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 0.75rem;
+}
+
+.gate-box button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+#error {
+  display: none;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #ff6fae;
+}
+
+
+
+/* HERO */
+.project-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 12rem 2rem 6rem;
+}
+
+.project-eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+.project-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin: 1rem 0;
+  color: var(--accent-pink);
+  font-weight: 700;
+}
+
+.project-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  color: inherit;
+}
+
+/* META */
+.project-meta {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.meta-block h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+/* BODY */
+.project-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.project-section {
+  margin-bottom: 5rem;
+}
+
+.project-section h2,
+.project-section h3 {
+  margin-bottom: 1.5rem;
+}
+
+.project-section h4 {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.project-section p {
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
+.project-section ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.project-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* IMAGES */
+.project-image {
+  margin: 6rem 0;
+}
+
+.project-image img {
+  width: 100%;
+  border-radius: 12px; /* luego se lo devuelves con cariño */
+}
+
+/* REFLECTION */
+.project-reflection {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 6rem 2rem 10rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .project-hero {
+    padding-top: 8rem;
+  }
+
+    .footer-link {
+    font-size: 1rem;
+  }
+}
+
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem;
+  margin-top: 2rem;
+}
+
+/* base */
+.tag {
+  font-size: 0.80rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1rem 1rem;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+
+/* shapes */
+.project-tags {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 700;
+  transition: 
+    background-color 0.4s ease,
+    transform 0.4s ease,
+    color 0.4s ease;
+  will-change: transform;
+}
+
+.tag.pill {
+  border-radius: 999px;
+}
+
+.tag.rect {
+  border-radius: 2px;
+}
+
+.tag.hybrid {
+  border-radius: 999px 2px 2px 999px;
+}
+
+/* colors */
+.tag.pink {
+  background-color: #fb10e0;
+  color: whitesmoke;
+}
+
+.tag.blue {
+  background-color: #0033ff;
+  color: whitesmoke;
+}
+
+.tag.green {
+  background-color: #000000;
+  color: whitesmoke;
+}
+
+.tag.neutral {
+  background-color: #80ff00;
+  color: #1a1a1a;
+}
+
+
+/*-------------------------------
+   Footer */
+   :root {
+    --color-bg-dark: #1a1a1a;
+    --color-pink: #fb108e;
+    --color-blue: #00ffee;
+   }
+
+.ghost-footer {
+  width: 100%;
+  background-color: var(--color-bg-dark);
+  padding: 80px 0 60px;
+  color: whitesmoke;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #000;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-marquee-wrapper {
+  width: 100%;
+  height: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 120px;
+  animation: marquee 40s linear infinite;
+}
+
+.footer-marquee-content span {
+  font-size: 40px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translatex(-50%);
+}}
+
+.socials {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 8px 40px;
+  width: 100%;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0 28px;
+  transition: color 0.3 ease;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+    /* Al pasar el mouse, usa el gradiente para un efecto más 'pop' */
+    color: var(--color-pink); 
+    background: linear-gradient(45deg, var(--color-pink), var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-note{
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+  opacity: 0.6;
+  padding-bottom: 20px;
+}
+
+

@@ -1,0 +1,557 @@
+.ghost-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 4rem 4rem;
+  background: var(--color-bg-dark);
+  z-index: 10;
+}
+
+.micro-nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.micro-nav a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.micro-nav a:hover {
+    /* Al pasar el mouse, usa el gradiente para un efecto más 'pop' */
+    color: var(--color-pink); 
+    background: linear-gradient(45deg, var(--color-pink), var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
+
+.stage {
+  padding-top: 10rem;
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.intro-piece {
+  position: relative;
+  min-height: 100vh;
+  padding: 12rem 6vw;
+  overflow: hidden;
+}
+
+.intro-title {
+  font-size: 4.8rem;
+  font-weight: 500;
+  
+}
+
+.intro-text {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.intro-sub {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  opacity: 0.6;
+}
+
+/*-------------------------------
+   Shapes Container 
+------------------------------ */
+
+.hero-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  
+}
+
+/* Base shape */
+.shape {
+  position: sticky;
+  top: 30vh;
+  transition: transform 0.6s ease-out;
+  will-change: transform;
+  pointer-events: none;
+  width: clamp(60px, 8vw, 140px);
+  aspect-ratio: 1;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .shape {
+    opacity: 0.85;
+    transform: scale(0.8);
+  }
+
+  .shape.slice {
+    top: 12vh;
+    left: 70vw;
+  }
+
+  .shape.circle {
+    bottom: 10vh;
+    right: 10vw;
+  }
+
+
+}
+
+/*-------------------------------
+   Individual Shapes
+------------------------------ */
+
+/* Citibanamex Slice */
+.slice {
+  top: clamp(20vh, 10vh, 15vh);
+  left: clamp(2vw, 5vw, 25vw);
+  
+  background: #fb108e;
+   width: 140px; /* adjust to control the size */
+  aspect-ratio: 1;
+  clip-path: polygon(99.81% 54.31%,80.17% 65.67%,82.17% 88.27%,60.25% 82.42%,45.69% 99.81%,34.33% 80.17%,11.73% 82.17%,17.58% 60.25%,0.19% 45.69%,19.83% 34.33%,17.83% 11.73%,39.75% 17.58%,54.31% 0.19%,65.67% 19.83%,88.27% 17.83%,82.42% 39.75%);
+}
+
+
+/* EAAD */
+.circle {
+  top: clamp(40vh, 5vh, 15vh);
+  left: clamp(20vw, 15vw, 25vw);
+  width: 200px; /* adjust to control the size */
+  aspect-ratio: 1;
+  /* ¡CAMBIO CLAVE AQUÍ! Rellenamos la forma con un color sólido */
+  background-color: #034DB1; 
+  
+  --g:/33.334% 33.334% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+  /* La propiedad mask se mantiene para definir la forma de la flor */
+  mask: 90.451% 79.389% var(--g),44.774% 99.726% var(--g),4.323% 70.337% var(--g),9.549% 20.611% var(--g),55.226% 0.274% var(--g),95.677% 29.663% var(--g),radial-gradient(100% 100%,#000 28.868%,#0000 calc(28.868% + 1px));
+}
+
+
+/* Alienpooh */
+.orb {
+  top: clamp(10vh, 25vh, 20vh);
+  left: clamp(5vw, 60vw, 80vw);
+  background: #74ff02;
+  width: 200px; /* adjust to control the size */
+  aspect-ratio: 1;
+  clip-path: polygon(99.78% 54.71%,56.37% 57.71%,45.29% 99.78%,42.29% 56.37%,0.22% 45.29%,43.63% 42.29%,54.71% 0.22%,57.71% 43.63%);
+}
+
+/* Melifloz */
+.stack {
+  top: clamp(10vh, 5vh, 5vh);
+  left: clamp(20vw, 40vw, 80vw);
+  background: #ff8a3d;
+  border-radius: 50%;
+  bottom: 22%;
+  right: 60%;
+}
+
+/* -------------------------
+   Motion
+-------------------------- */
+
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(4deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* -------------------------
+   Gallery
+-------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  padding: 4rem;
+}
+
+.project-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: visible;
+  border-radius: 20px;
+}
+
+.project-link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+}
+
+/* overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.20);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-overlay h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* hover magic */
+.project-link:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-link:hover .project-overlay {
+  opacity: 1;
+}
+
+
+/* -------------------------
+   Responsive
+-------------------------- */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text {
+    padding: 48px 32px;
+  }
+
+}
+
+
+.projects-stage {
+  position: relative;
+  min-height: 120vh;
+  background: #fff;
+  color: #1a1a1a;
+  padding: 12rem 6vw;
+}
+
+.piece {
+  position: absolute;
+    margin: 10rem;
+}
+
+.piece-link {
+  display: block;
+}
+
+.piece-image {
+  margin-top: 1.5rem;
+  width: 320px;
+}
+
+.piece-citi { top: 0; left: 0; }
+.piece-eaad { top: 30vh; left: 40vw; }
+.piece-nebvla { top: 70vh; left: 10vw; }
+.piece-alien { top: 50vh; left: 65vw; }
+
+.about-piece {
+  position: relative;
+  min-height: 20vh;
+  padding: 6rem 6vw;
+  overflow: hidden;
+}
+
+/*-------------------------------
+   Footer */
+   :root {
+    --color-bg-dark: #1a1a1a;
+    --color-pink: #fb108e;
+    --color-blue: #00ffee;
+   }
+
+.ghost-footer {
+  width: 100%;
+  background-color: var(--color-bg-dark);
+  padding: 80px 0 60px;
+  color: whitesmoke;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #000;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-marquee-wrapper {
+  width: 100%;
+  height: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 120px;
+  animation: marquee 40s linear infinite;
+}
+
+.footer-marquee-content span {
+  font-size: 40px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translatex(-50%);
+}}
+
+.socials {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 8px 40px;
+  width: 100%;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0 28px;
+  transition: color 0.3 ease;
+  font-weight: 500;
+}
+
+.footer-link:hover {
+    /* Al pasar el mouse, usa el gradiente para un efecto más 'pop' */
+    color: var(--color-pink); 
+    background: linear-gradient(45deg, var(--color-pink), var(--color-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-note{
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+  opacity: 0.6;
+  padding-bottom: 20px;
+}
+
+.piece-link::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background: linear-gradient(
+    120deg,
+    rgba(120, 90, 255, 0.25),
+    rgba(255, 150, 200, 0.25)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  filter: blur(50px);
+}
+
+.piece-link:hover::after {
+  opacity: 1;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+
+@media (max-width: 768px) {
+
+
+  .menu-toggle {
+    display: block;
+    font-size: 2.4rem;
+    background: none;
+    border: none;
+    color: white;
+    z-index: 1001;
+  }
+
+  .ghost-header {
+    height: auto;
+    padding: 1.5rem 0rem;
+    z-index: 10;
+  }
+
+  .micro-nav {
+    position: fixed;
+    top: 0;
+    height: auto;
+    width: 100%;
+    background: var(--color-bg-dark);
+    padding: 1.3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+  }
+
+  .micro-nav a {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  /* ---------- OPEN STATE ---------- */
+
+  .micro-nav.open {
+    height: 100vh;
+    inset: 0;
+    background: var(--color-bg-dark);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1000;
+    overscroll-behavior: contain;
+    touch-action: none;
+
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .micro-nav.open .menu-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .micro-nav.open a {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    opacity: 1;
+  }
+
+  .micro-nav.open .logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    transform: none; 
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .project-card {
+    aspect-ratio: 4/5;
+    position: relative;
+  }
+
+  .projects-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 6rem 2rem;
+    min-height: auto;
+  }
+
+  .stage {
+    padding: 1rem 0 ;
+  }
+  
+  .intro-piece {
+    padding: 8rem 2rem;
+  }
+
+  .piece {
+    position: relative;
+    margin: 0;
+    width: 100%;
+  } 
+
+  .piece-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .piece-citi,
+  .piece-eaad,
+  .piece-nebvla,
+  .piece-alien {
+    top: auto;
+    left: auto;
+  }
+
+  .footer-link {
+    font-size: 1rem;
+  }
+}

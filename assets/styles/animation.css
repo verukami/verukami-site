@@ -1,0 +1,19 @@
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(4deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+.drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+.float {
+  animation: float 7s ease-in-out infinite alternate;
+}
+
